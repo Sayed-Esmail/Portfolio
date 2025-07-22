@@ -4726,3 +4726,9 @@ input, select, textarea {
     margin: 0.5em 0;
   }
 }
+.image.main img {
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
