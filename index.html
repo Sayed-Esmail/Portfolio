@@ -1389,9 +1389,20 @@ document.getElementById('cform').addEventListener('submit', () => {
   setTimeout(() => { b.innerHTML = '<i class="fas fa-check"></i> Message Sent!'; b.classList.add('sent'); }, 700);
 });
 
-/* ── Magnetic hover on hero chips ── */
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('mousemove', function(e) {
-    const r = this.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width / 2;
-    const y = e.clientY - r.top - r.height / 2;
+/* ── Magnetic hover on hero chips (desktop only) ── */
+if(!isTouch){
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('mousemove', function(e) {
+      const r = this.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      this.style.transform = `translateY(-3px) translate(${x * .15}px, ${y * .15}px)`;
+    });
+    chip.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+}
+</script>
+</body>
+</html>
