@@ -500,43 +500,279 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
 .foot-built{font-size:.52rem;color:var(--txt3);letter-spacing:.1em}
 
 /* ═══════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — COMPLETE MOBILE OVERHAUL
+   Breakpoints: 1060 · 768 · 480 · 360
 ═══════════════════════════════════════════════ */
+
+/* ── TABLET (≤1060px) ── */
 @media(max-width:1060px){
-  .hero-inner{grid-template-columns:1fr;padding-top:100px;gap:4rem}
-  .hero-r{order:-1;max-width:380px;margin:0 auto}
+  /* NAV */
+  .n-links{gap:1.5rem}
+  .n-links a{font-size:.52rem}
+
+  /* HERO */
+  .hero-inner{grid-template-columns:1fr;padding-top:110px;gap:3rem;text-align:center}
+  .hero-r{order:-1;max-width:340px;margin:0 auto}
   .hero-l{text-align:center}
   .hero-role-row{justify-content:center}
-  .hero-usp{margin:0 auto 2.8rem}
+  .hero-usp{margin:0 auto 2.5rem;max-width:100%}
   .hero-chips,.hero-btns{justify-content:center}
-  .hero-stats-row{justify-content:center}
-  .about-layout,.exp-layout,.contact-layout{grid-template-columns:1fr;gap:4rem}
-  .about-img-side{max-width:380px;margin:0 auto}
+  .hero-stats-row{justify-content:center;gap:2rem}
+  /* move floating cards inside photo on tablet */
+  .fc-1{left:-1rem;bottom:18%}
+  .fc-2{right:-1rem;top:14%}
+  .fc-3{right:-1rem;bottom:40%}
+
+  /* ABOUT */
+  .about-layout{grid-template-columns:1fr;gap:3.5rem}
+  .about-img-side{max-width:360px;margin:0 auto}
   .about-side-label{display:none}
-  .exp-stats-col{position:static;flex-direction:row;flex-wrap:wrap}
-  .exp-big-stat{flex:1;min-width:150px}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .proj-grid .proj-card:nth-child(1){grid-column:span 2}
+  .about-bg-num{font-size:40vw;opacity:.8}
+
+  /* EXPERIENCE */
+  .exp-layout{grid-template-columns:1fr;gap:3rem}
+  .exp-bg-word{font-size:38vw}
+  .exp-stats-col{position:static;flex-direction:row;flex-wrap:wrap;gap:1rem}
+  .exp-big-stat{flex:1;min-width:140px;padding:2rem 1.5rem}
+  .exp-stat-num{font-size:3.2rem}
+
+  /* EDUCATION */
   .edu-grid{grid-template-columns:1fr}
-  .certs-layout{grid-template-columns:1fr 1fr}
+
+  /* SKILLS */
   .skills-layout{grid-template-columns:1fr}
+  .skills-intro{flex-direction:column;gap:1rem;margin-bottom:3rem}
+
+  /* PROJECTS */
+  .proj-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .proj-grid .proj-card:nth-child(1){grid-column:span 2}
+
+  /* CERTS */
+  .certs-layout{grid-template-columns:1fr 1fr}
+
+  /* CONTACT */
+  .contact-layout{grid-template-columns:1fr;gap:3.5rem}
+
+  /* SECTIONS */
+  .sec{padding:8rem 3rem}
+  .sec-div{margin:0 3rem}
 }
+
+/* ── MOBILE (≤768px) ── */
 @media(max-width:768px){
-  #nav{padding:.9rem 1.5rem}
-  .n-links,.n-ico:not(.n-ico-show){display:none}
-  .n-ham{display:flex}
-  .sec{padding:7rem 1.5rem}
-  .hero-inner{padding:92px 1.5rem 3.5rem}
-  .fc-1{left:-1.5rem}.fc-2{right:-1.5rem}.fc-3{right:-1.5rem}
-  .proj-grid{grid-template-columns:1fr}
+  /* NAV */
+  #nav{padding:.85rem 1.25rem}
+  #nav.solid{padding:.85rem 1.25rem}
+  .n-links{display:none}
+  .n-ico{display:none}
+  .n-ham{display:flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0}
+  /* keep toggle visible */
+  #tog{display:block}
+
+  /* MOBILE NAV MENU */
+  .mob{top:58px;padding:1.8rem 1.5rem;gap:1.2rem}
+  .mob a{font-size:.68rem;padding:.5rem 0}
+
+  /* SECTIONS */
+  .sec{padding:5.5rem 1.25rem}
+  .sec-div{margin:0 1.25rem}
+  .sec-h{font-size:clamp(2.4rem,9vw,3.2rem);margin-bottom:3rem}
+  .sec-chip{font-size:.52rem;letter-spacing:.22em}
+
+  /* HERO */
+  .hero-inner{
+    padding:80px 1.25rem 3rem;
+    gap:2rem;
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center
+  }
+  /* photo: smaller, no overflow cards */
+  .hero-r{max-width:260px;margin:0 auto}
+  .photo-wrap{max-width:260px}
+  /* hide floating cards on mobile — too cramped */
+  .fc{display:none}
+  /* corners smaller */
+  .corner{width:30px;height:30px}
+  .corner-tl{top:-6px;left:-6px}
+  .corner-tr{top:-6px;right:-6px}
+  .corner-bl{bottom:-6px;left:-6px}
+  .corner-br{bottom:-6px;right:-6px}
+
+  /* hero text */
+  .hero-name{font-size:clamp(3.8rem,14vw,5.5rem);margin-bottom:1.2rem}
+  .hero-badge{font-size:.52rem;padding:.28rem .8rem;margin-bottom:1.5rem}
+  .hero-pre{font-size:.52rem;letter-spacing:.22em;margin-bottom:.5rem}
+  .hero-role{font-size:.72rem}
+  .hero-role-row{margin-bottom:1.5rem}
+  .hero-usp{font-size:.78rem;line-height:1.95;margin-bottom:2rem}
+  .hero-chips{gap:.35rem;margin-bottom:2rem}
+  .chip{font-size:.52rem;padding:.18rem .6rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:.7rem;width:100%}
+  .hero-btns .btn{width:100%;max-width:320px;justify-content:center;padding:.85rem 1.5rem}
+  .hero-stats-row{gap:1.5rem;margin-top:2rem;padding-top:1.8rem;justify-content:space-around}
+  .hstat-n{font-size:1.6rem}
+  .hstat-l{font-size:.46rem}
+
+  /* scroll cue */
+  .scroll-cue{display:none}
+
+  /* MARQUEE */
+  .marquee-strip{padding:1.6rem 0}
+  .marquee-item{padding:0 2rem;gap:.8rem}
+  .marquee-num{font-size:1.3rem}
+  .marquee-lbl{font-size:.48rem;letter-spacing:.15em}
+
+  /* ABOUT */
+  .about-layout{gap:2.5rem}
+  .about-img-side{max-width:280px}
+  .about-bg-num{display:none}
+  .about-quote{font-size:1.25rem;padding-left:1.2rem;margin-bottom:1.5rem}
+  .about-p{font-size:.75rem;line-height:1.95}
+  .about-kv{grid-template-columns:1fr 1fr;gap:.6rem;margin:1.5rem 0 2rem}
+  .kv{padding:.8rem 1rem}
+  .kv-v{font-size:.78rem}
+  .about-mini-timeline{gap:.55rem}
+  .amt{font-size:.68rem}
+  .about-badge{left:1rem;bottom:1rem;font-size:.65rem;padding:.45rem .9rem}
+
+  /* EXPERIENCE */
+  .exp-layout{gap:2.5rem}
+  .exp-bg-word{display:none}
+  .exp-timeline{padding-left:1.5rem}
+  .exp-dot{left:-2rem;width:9px;height:9px}
+  .exp-item{padding:1.8rem 1.5rem;margin-bottom:1rem;border-radius:var(--r)}
+  .exp-item:hover{transform:none;box-shadow:none}/* disable translateX on mobile */
+  .exp-role{font-size:.95rem}
+  .exp-desc{font-size:.7rem;line-height:1.85}
+  .exp-tags{gap:.3rem}
+  .exp-tag{font-size:.48rem}
+  /* stats row */
+  .exp-stats-col{flex-direction:row;flex-wrap:wrap;gap:.8rem}
+  .exp-big-stat{flex:1;min-width:130px;padding:1.5rem 1rem;border-radius:var(--r)}
+  .exp-stat-num{font-size:2.6rem}
+  .exp-stat-lbl{font-size:.5rem;letter-spacing:.18em}
+  .exp-stat-sub{font-size:.6rem}
+
+  /* EDUCATION */
+  .edu-grid{grid-template-columns:1fr;gap:1rem}
+  .edu-card{padding:2rem 1.5rem;border-radius:var(--rl)}
+  .edu-card:hover{transform:none}
+  .edu-deg{font-size:.95rem}
+  .edu-desc{font-size:.68rem}
+
+  /* SKILLS */
+  .skills-intro{gap:.8rem;margin-bottom:2.5rem}
+  .skills-note{font-size:.68rem}
+  .skills-layout{grid-template-columns:1fr;gap:1rem}
+  .sk{padding:1.8rem 1.5rem;border-radius:var(--r)}
+  .sk:hover{transform:none}
+  .sk-title{font-size:.88rem}
+  .sk-nm{font-size:.62rem}
+  .sk-pc{font-size:.7rem}
+
+  /* PROJECTS */
+  .proj-grid{grid-template-columns:1fr;gap:1rem}
   .proj-grid .proj-card:nth-child(1){grid-column:span 1}
-  .certs-layout{grid-template-columns:1fr}
+  .proj-card:hover{transform:none}/* disable scale on mobile */
+  .proj-filter{gap:.45rem;margin-bottom:2.5rem}
+  .pf{font-size:.52rem;padding:.25rem .8rem}
+  .proj-body{padding:1.2rem}
+  .proj-title{font-size:.92rem}
+  .proj-card:nth-child(1) .proj-title{font-size:.92rem}
+  .proj-desc{font-size:.67rem}
+  /* always show github link on mobile (no hover) */
+  .proj-reveal{opacity:1;background:transparent;backdrop-filter:none;position:relative;inset:unset;flex-direction:row;justify-content:flex-start;padding:0 1.2rem 1rem}
+  .proj-reveal-btn{font-size:.54rem;padding:.38rem .9rem}
+  /* restore proj img */
+  .proj-img-w img{filter:saturate(.55) brightness(.65)}
+  .proj-num{font-size:3.5rem;top:.8rem;right:.9rem}
+  .proj-cta{margin-top:2rem}
+
+  /* CERTS */
+  .certs-layout{grid-template-columns:1fr;gap:1rem}
+  .cert-card:hover{transform:none}
+  .cert-body{padding:1.1rem}
+  .cert-name{font-size:.84rem}
+
+  /* CTA */
+  #cta{padding:6rem 1.25rem}
+  .cta-h{font-size:clamp(2rem,8vw,2.8rem)}
+  .cta-p{font-size:.74rem;line-height:1.9;margin-bottom:2.8rem}
+  .cta-btns{flex-direction:column;align-items:center;gap:.7rem}
+  .cta-btns .btn{width:100%;max-width:300px;justify-content:center}
+  /* rings too large on mobile */
+  .cta-ring-1{width:300px;height:300px}
+  .cta-ring-2{width:450px;height:450px}
+  .cta-ring-3{width:600px;height:600px}
+
+  /* CONTACT */
+  .ci-h{font-size:2rem}
+  .ci-p{font-size:.72rem;margin-bottom:2rem}
+  .c-row{padding:.75rem .9rem}
+  .c-val{font-size:.68rem}
   .f-row{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:1.2rem;text-align:center;padding:2rem 1.5rem}
-  .mob{padding:2rem 1.5rem}
-  .marquee-strip{padding:2rem 0}
-  #cta{padding:8rem 1.5rem}
-  .sec-div{margin:0 1.5rem}
+  .f-g input,.f-g textarea{font-size:.8rem;padding:.8rem 1rem}
+  .f-submit{width:100%;justify-content:center;padding:.9rem 1.5rem}
+  .contact-layout{gap:2.5rem}
+
+  /* FOOTER */
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.25rem}
+  .foot-built{display:none}
+  .foot-copy{font-size:.55rem}
+
+  /* BUTTONS global */
+  .btn{font-size:.65rem;padding:.82rem 1.6rem}
+
+  /* disable cursor on touch */
+  #cur,#cur-ring,#cur-text{display:none}
+  body{cursor:auto}
+  .btn,.chip,.pf,.kv,.proj-card,.cert-card,.c-row,.exp-item,.edu-card,.sk,.fc{cursor:pointer}
+}
+
+/* ── SMALL MOBILE (≤480px) ── */
+@media(max-width:480px){
+  .sec{padding:4.5rem 1rem}
+  .sec-div{margin:0 1rem}
+  .sec-h{font-size:clamp(2.2rem,10vw,2.8rem)}
+
+  /* hero */
+  .hero-inner{padding:72px 1rem 2.5rem}
+  .hero-r{max-width:220px}
+  .hero-name{font-size:clamp(3.2rem,16vw,4.5rem)}
+  .hero-btns .btn{max-width:100%;font-size:.62rem}
+  .hero-stats-row{gap:1rem;padding-top:1.4rem;margin-top:1.4rem}
+  .hstat-n{font-size:1.4rem}
+
+  /* about */
+  .about-kv{grid-template-columns:1fr 1fr;gap:.5rem}
+  .kv{padding:.7rem .8rem}
+  .kv-k{font-size:.46rem}
+  .kv-v{font-size:.72rem}
+
+  /* exp */
+  .exp-stats-col{flex-direction:column}
+  .exp-big-stat{min-width:unset;width:100%}
+
+  /* projects */
+  .proj-reveal{padding:0 1rem .9rem}
+
+  /* cta */
+  #cta{padding:5rem 1rem}
+  .avail-pill{font-size:.5rem}
+
+  /* contact */
+  .mob{padding:1.5rem 1rem}
+  #nav{padding:.8rem 1rem}
+}
+
+/* ── TINY MOBILE (≤360px) ── */
+@media(max-width:360px){
+  .hero-name{font-size:3rem}
+  .hero-r{max-width:190px}
+  .about-kv{grid-template-columns:1fr}
+  .exp-stats-col{flex-direction:column}
+  .btn{padding:.78rem 1.2rem;font-size:.6rem}
+  .sec{padding:4rem .9rem}
 }
 </style>
 </head>
@@ -952,7 +1188,7 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
         <p class="ci-p">Whether it's a freelance project, a collaboration, or a training opportunity — I respond fast and bring full dedication to every engagement.</p>
         <div class="c-list">
           <a href="https://wa.me/201150704926" target="_blank" class="c-row"><div class="c-ico"><i class="fab fa-whatsapp"></i></div><div><div class="c-lbl">WhatsApp</div><div class="c-val">Message me directly</div></div></a>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=esmailsayed124@gmail.com" target="_blank" class="c-row"><div class="c-ico"><i class="fas fa-envelope"></i></div><div><div class="c-lbl">Email</div><div class="c-val">esmailSayed124@gmail.com</div></div></a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=esmailsayed124@gmail.com" target="_blank" class="c-row"><div class="c-ico"><i class="fas fa-envelope"></i></div><div><div class="c-lbl">Email</div><div class="c-val"><span class="__cf_email__" data-cfemail="92f7e1fff3fbfec1f3ebf7f6a3a0a6d2f5fff3fbfebcf1fdff">[email&#160;protected]</span></div></div></a>
           <a href="http://www.linkedin.com/in/sayed-esmail14" target="_blank" class="c-row"><div class="c-ico"><i class="fab fa-linkedin"></i></div><div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/sayed-esmail14</div></div></a>
           <a href="https://github.com/Sayed-Esmail" target="_blank" class="c-row"><div class="c-ico"><i class="fab fa-github"></i></div><div><div class="c-lbl">GitHub</div><div class="c-val">github.com/Sayed-Esmail</div></div></a>
           <div class="c-row" style="cursor:default"><div class="c-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="c-lbl">Location</div><div class="c-val">Cairo, Egypt 🇪🇬</div></div></div>
@@ -986,9 +1222,24 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
 </footer>
 
 <!-- ══ SCRIPTS ══ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Dynamic year
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── Detect touch device ── */
+const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+if(isTouch){
+  document.body.style.cursor = 'auto';
+  // On touch: make project reveals always visible via tap
+  document.querySelectorAll('.proj-card').forEach(card => {
+    card.addEventListener('click', function(e){
+      if(!e.target.closest('a')){
+        const rev = this.querySelector('.proj-reveal');
+        if(rev) rev.style.opacity = rev.style.opacity === '1' ? '' : '1';
+      }
+    });
+  });
+}
 
 /* ── Cursor ── */
 const cur = document.getElementById('cur');
@@ -1144,12 +1395,3 @@ document.querySelectorAll('.chip').forEach(chip => {
     const r = this.getBoundingClientRect();
     const x = e.clientX - r.left - r.width / 2;
     const y = e.clientY - r.top - r.height / 2;
-    this.style.transform = `translateY(-3px) translate(${x * .15}px, ${y * .15}px)`;
-  });
-  chip.addEventListener('mouseleave', function() {
-    this.style.transform = '';
-  });
-});
-</script>
-</body>
-</html>
