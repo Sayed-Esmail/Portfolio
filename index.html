@@ -17,53 +17,46 @@
    DESIGN TOKENS
 ═══════════════════════════════════════════════ */
 :root {
-  --ink:    #04040a;
-  --ink1:   #070712;
-  --ink2:   #0c0c1e;
-  --ink3:   #121230;
-  --g0:     #f7e4aa;
-  --g1:     #e8c97a;
-  --g2:     #c9a84c;
-  --g3:     #9a7020;
-  --g4:     #6a4a08;
-  --gg:     linear-gradient(135deg,#f7e4aa 0%,#e8c97a 40%,#c9a84c 100%);
-  --gg2:    linear-gradient(90deg,#f7e4aa,#c9a84c);
-  --gg3:    linear-gradient(135deg,#f7e4aa,#e8c97a,#c9a84c,#9a7020);
-  --teal:   #2dd4bf;
-  --rose:   #fb7185;
-  --violet: #a78bfa;
-  --txt:    #f0ece0;
-  --txt2:   #8a887e;
-  --txt3:   #3e3c38;
-  --sur:    rgba(247,228,170,.03);
-  --sur2:   rgba(247,228,170,.06);
-  --brd:    rgba(247,228,170,.07);
-  --brdh:   rgba(247,228,170,.18);
-  --r:      12px;
-  --rl:     22px;
-  --rxl:    32px;
-  --serif:  'Cormorant Garamond',Georgia,serif;
-  --sans:   'Outfit',sans-serif;
-  --mono:   'JetBrains Mono',monospace;
-  --ease:   cubic-bezier(.4,0,.2,1);
-  --spring: cubic-bezier(.34,1.56,.64,1);
-  --slow:   cubic-bezier(.16,1,.3,1);
-  --snap:   cubic-bezier(.23,1,.32,1);
-}
-
-/* LIGHT MODE */
-body.light {
+  /* ── LIGHT MODE IS DEFAULT ── */
   --ink:#f4f0e6; --ink1:#ece8da; --ink2:#e4dfce; --ink3:#dcd7c8;
-  --g1:#9a7020; --g2:#7a5518; --g0:#6a4a08; --g3:#4a3208;
+  --g0:#6a4a08; --g1:#9a7020; --g2:#7a5518; --g3:#4a3208; --g4:#2a1e04;
   --gg:linear-gradient(135deg,#b8901a,#7a5518);
   --gg2:linear-gradient(90deg,#c9a84c,#7a5518);
+  --gg3:linear-gradient(135deg,#c9a84c,#9a7020,#7a5518);
   --teal:#0d9488; --rose:#e11d48; --violet:#7c3aed;
   --txt:#1a1710; --txt2:#5a5648; --txt3:#9a9688;
   --sur:rgba(154,112,32,.04); --sur2:rgba(154,112,32,.08);
   --brd:rgba(154,112,32,.1); --brdh:rgba(154,112,32,.22);
+  --r:12px; --rl:22px; --rxl:32px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --slow:cubic-bezier(.16,1,.3,1);
+  --snap:cubic-bezier(.23,1,.32,1);
 }
-body.light #particles{opacity:.1}
-body.light .grain{opacity:.1}
+#particles{opacity:.12}
+.grain{opacity:.12}
+
+/* DARK MODE (toggled) */
+body.dark {
+  --ink:#04040a; --ink1:#070712; --ink2:#0c0c1e; --ink3:#121230;
+  --g0:#f7e4aa; --g1:#e8c97a; --g2:#c9a84c; --g3:#9a7020; --g4:#6a4a08;
+  --gg:linear-gradient(135deg,#f7e4aa 0%,#e8c97a 40%,#c9a84c 100%);
+  --gg2:linear-gradient(90deg,#f7e4aa,#c9a84c);
+  --gg3:linear-gradient(135deg,#f7e4aa,#e8c97a,#c9a84c,#9a7020);
+  --teal:#2dd4bf; --rose:#fb7185; --violet:#a78bfa;
+  --txt:#f0ece0; --txt2:#8a887e; --txt3:#3e3c38;
+  --sur:rgba(247,228,170,.03); --sur2:rgba(247,228,170,.06);
+  --brd:rgba(247,228,170,.07); --brdh:rgba(247,228,170,.18);
+}
+body.dark #particles{opacity:.7}
+body.dark .grain{opacity:.45}
+body.dark .aurora-blob{mix-blend-mode:screen;opacity:1;filter:blur(80px)}
+body.dark .ab1{background:radial-gradient(ellipse,rgba(232,201,122,.04),transparent 70%)}
+body.dark .ab2{background:radial-gradient(ellipse,rgba(45,212,191,.03),transparent 70%)}
+body.dark .ab3{background:radial-gradient(ellipse,rgba(251,113,133,.025),transparent 70%)}
 
 /* RESET */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -95,10 +88,10 @@ a{text-decoration:none;color:inherit}
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.45;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E")}
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.aurora-blob{position:absolute;border-radius:50%;filter:blur(80px);mix-blend-mode:screen;animation:aurora-drift 18s ease-in-out infinite}
-.ab1{width:600px;height:400px;background:radial-gradient(ellipse,rgba(232,201,122,.04),transparent 70%);top:-10%;left:60%;animation-delay:0s}
-.ab2{width:500px;height:600px;background:radial-gradient(ellipse,rgba(45,212,191,.03),transparent 70%);top:40%;left:-10%;animation-delay:-6s}
-.ab3{width:400px;height:400px;background:radial-gradient(ellipse,rgba(251,113,133,.025),transparent 70%);top:70%;right:-5%;animation-delay:-12s}
+.aurora-blob{position:absolute;border-radius:50%;filter:blur(60px);mix-blend-mode:multiply;opacity:.7;animation:aurora-drift 18s ease-in-out infinite}
+.ab1{width:600px;height:400px;background:radial-gradient(ellipse,rgba(154,112,32,.08),transparent 70%);top:-10%;left:60%;animation-delay:0s}
+.ab2{width:500px;height:600px;background:radial-gradient(ellipse,rgba(13,148,136,.05),transparent 70%);top:40%;left:-10%;animation-delay:-6s}
+.ab3{width:400px;height:400px;background:radial-gradient(ellipse,rgba(120,80,20,.06),transparent 70%);top:70%;right:-5%;animation-delay:-12s}
 @keyframes aurora-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-3%,2%) scale(1.05)}66%{transform:translate(2%,-2%) scale(.96)}}
 
 /* ═══════════════════════════════════════════════
@@ -129,11 +122,11 @@ a{text-decoration:none;color:inherit}
 .n-ico:hover{color:var(--g1);transform:translateY(-2px)}
 #tog{width:44px;height:24px;background:var(--sur);border:1px solid var(--brd);border-radius:100px;cursor:none;position:relative;transition:border-color .3s}
 #tog::before{content:'';position:absolute;top:4px;left:4px;width:14px;height:14px;background:var(--g1);border-radius:50%;transition:transform .35s var(--spring);box-shadow:0 0 10px rgba(232,201,122,.4)}
-body.light #tog::before{transform:translateX(20px)}
+body.dark #tog::before{transform:translateX(20px)}
 .tog-i{position:absolute;top:50%;transform:translateY(-50%);font-size:.48rem;color:var(--txt3)}
 .tog-moon{left:5px}.tog-sun{right:5px}
-body.light .tog-moon{opacity:0}
-body:not(.light) .tog-sun{opacity:0}
+body.dark .tog-sun{opacity:0}
+body:not(.dark) .tog-moon{opacity:0}
 .n-ham{display:none;background:none;border:1px solid var(--brd);color:var(--txt2);padding:.38rem .7rem;border-radius:8px;cursor:none;transition:border-color .2s}
 .n-ham:hover{border-color:var(--brdh)}
 /* mobile nav */
@@ -342,7 +335,7 @@ body:not(.light) .tog-sun{opacity:0}
   padding:2.8rem 2.5rem;background:var(--sur);border:1px solid var(--brd);border-radius:var(--rxl);
   position:relative;overflow:hidden;transition:border-color .3s,transform .35s var(--spring),box-shadow .35s
 }
-.edu-card:hover{border-color:var(--brdh);transform:translateY(-8px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.edu-card:hover{border-color:var(--brdh);transform:translateY(-8px);box-shadow:0 30px 80px rgba(0,0,0,.14)}
 .edu-card-accent{position:absolute;top:0;left:0;right:0;height:3px;background:var(--gg);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
 .edu-card:hover .edu-card-accent{transform:scaleX(1)}
 .edu-card-bg{position:absolute;bottom:-20%;right:-10%;width:200px;height:200px;background:radial-gradient(circle,rgba(232,201,122,.05),transparent 70%);pointer-events:none;transition:transform .5s}
@@ -360,9 +353,9 @@ body:not(.light) .tog-sun{opacity:0}
 #skills{background:var(--ink);overflow:hidden}
 .skills-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:5rem;flex-wrap:wrap;gap:2rem}
 .skills-note{font-size:.72rem;color:var(--txt3);max-width:340px;line-height:1.8}
-.skills-layout{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem}
-.sk{padding:2.4rem;background:var(--sur);border:1px solid var(--brd);border-radius:var(--rl);position:relative;overflow:hidden;transition:border-color .3s,transform .35s var(--spring),box-shadow .35s}
-.sk:hover{border-color:var(--brdh);transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,.3)}
+.skills-layout{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;align-items:stretch}
+.sk{padding:2.4rem;background:var(--sur);border:1px solid var(--brd);border-radius:var(--rl);position:relative;overflow:hidden;transition:border-color .3s,transform .35s var(--spring),box-shadow .35s;display:flex;flex-direction:column}
+.sk:hover{border-color:var(--brdh);transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,.12)}
 .sk-glow{position:absolute;top:-25%;right:-15%;width:200px;height:200px;background:radial-gradient(circle,rgba(232,201,122,.055),transparent 70%);pointer-events:none;transition:transform .5s var(--ease)}
 .sk:hover .sk-glow{transform:scale(1.5)}
 .sk-corner-accent{position:absolute;top:0;right:0;width:60px;height:60px;overflow:hidden;pointer-events:none}
@@ -371,7 +364,7 @@ body:not(.light) .tog-sun{opacity:0}
 .sk-hd{display:flex;align-items:center;gap:1rem;margin-bottom:2.2rem}
 .sk-icon-wrap{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:rgba(232,201,122,.08);border:1px solid rgba(232,201,122,.13);border-radius:11px;font-size:1.15rem;flex-shrink:0}
 .sk-title{font-family:var(--sans);font-size:.95rem;font-weight:700;color:var(--txt)}
-.sk-rows{display:flex;flex-direction:column;gap:1.05rem}
+.sk-rows{display:flex;flex-direction:column;gap:1.05rem;flex:1;justify-content:space-evenly}
 .sk-row-head{display:flex;justify-content:space-between;margin-bottom:.42rem}
 .sk-nm{font-size:.67rem;color:var(--txt2)}
 .sk-pc{font-size:.6rem;color:var(--g1);font-family:var(--serif);font-style:italic;font-size:.75rem}
@@ -387,11 +380,9 @@ body:not(.light) .tog-sun{opacity:0}
 .pf{padding:.3rem .9rem;background:var(--sur);border:1px solid var(--brd);border-radius:100px;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);transition:all .25s;cursor:none}
 .pf.active,.pf:hover{border-color:var(--brdh);color:var(--g1);background:rgba(232,201,122,.06)}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.proj-grid .proj-card:nth-child(1){grid-column:span 2}
 .proj-card{background:var(--sur);border:1px solid var(--brd);border-radius:var(--rl);overflow:hidden;position:relative;cursor:none;transition:transform .45s var(--spring),border-color .3s,box-shadow .45s}
-.proj-card:hover{transform:translateY(-12px) scale(1.015);border-color:var(--brdh);box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 0 1px rgba(232,201,122,.07)}
+.proj-card:hover{transform:translateY(-12px) scale(1.015);border-color:var(--brdh);box-shadow:0 24px 60px rgba(0,0,0,.15),0 0 0 1px rgba(154,112,32,.1)}
 .proj-img-w{position:relative;overflow:hidden;background:var(--ink2)}
-.proj-card:nth-child(1) .proj-img-w{aspect-ratio:16/8}
 .proj-img-w{aspect-ratio:16/10}
 .proj-img-w img{width:100%;height:100%;object-fit:cover;filter:saturate(.4) brightness(.55);transition:filter .55s,transform .55s var(--ease)}
 .proj-card:hover .proj-img-w img{filter:saturate(.9) brightness(.78);transform:scale(1.08)}
@@ -406,7 +397,7 @@ body:not(.light) .tog-sun{opacity:0}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.38rem;margin-bottom:.8rem}
 .proj-tag{padding:.15rem .58rem;background:rgba(232,201,122,.06);border:1px solid rgba(232,201,122,.1);border-radius:5px;font-size:.52rem;color:var(--g2);letter-spacing:.1em;text-transform:uppercase}
 .proj-title{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--txt);margin-bottom:.55rem;line-height:1.3}
-.proj-card:nth-child(1) .proj-title{font-size:1.25rem}
+
 .proj-desc{font-size:.7rem;color:var(--txt3);line-height:1.85}
 /* view all */
 .proj-cta{display:flex;justify-content:center;margin-top:3rem}
@@ -545,7 +536,6 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
 
   /* PROJECTS */
   .proj-grid{grid-template-columns:1fr 1fr;gap:1rem}
-  .proj-grid .proj-card:nth-child(1){grid-column:span 2}
 
   /* CERTS */
   .certs-layout{grid-template-columns:1fr 1fr}
@@ -856,7 +846,7 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
       </div>
       <div class="hero-stats-row">
         <div class="hstat"><div class="hstat-n" data-count="30">0+</div><div class="hstat-l">Freelance Projects</div></div>
-        <div class="hstat"><div class="hstat-n">2+</div><div class="hstat-l">Years Active</div></div>
+        <div class="hstat"><div class="hstat-n">2+</div><div class="hstat-l">Years in Analytics</div></div>
         <div class="hstat"><div class="hstat-n">3+</div><div class="hstat-l">Certifications</div></div>
       </div>
     </div>
@@ -925,7 +915,7 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
         <p class="about-quote rv d1">"Turning numbers into narratives that drive real business decisions."</p>
         <p class="about-p rv d2">I'm <strong>Sayed Esmail</strong>, a Data Analyst with a strong foundation in extracting insights from complex datasets to support strategic, data-driven decision-making.</p>
         <p class="about-p rv d3">Skilled in <strong>SQL, Python, Excel, and Power BI</strong> — with hands-on experience designing interactive dashboards, building multi-layer data warehouses, and translating raw data into stories that non-technical stakeholders can act on.</p>
-        <p class="about-p rv d4">Beyond analysis, I've worked as a <strong>freelance Data Instructor</strong> with DEPI, mentoring aspiring analysts and helping them break into the data field.</p>
+        <p class="about-p rv d4">Beyond analysis, I've worked as a <strong>Freelance Instructor</strong> with DEPI, mentoring aspiring analysts and helping them break into the data field.</p>
         <div class="about-kv rv d4">
           <div class="kv"><div class="kv-k">Location</div><div class="kv-v">Cairo, Egypt 🇪🇬</div></div>
           <div class="kv"><div class="kv-k">Status</div><div class="kv-v" style="color:var(--teal)">Available ✓</div></div>
@@ -934,8 +924,8 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
         </div>
         <div class="about-mini-timeline rv d5">
           <div class="amt"><span class="amt-yr">2020</span><div class="amt-bar"></div><span>Started CS & Engineering @ Menoufia</span></div>
-          <div class="amt"><span class="amt-yr">2023</span><div class="amt-bar"></div><span>Launched Freelance Data Analytics Career</span></div>
-          <div class="amt"><span class="amt-yr">2024</span><div class="amt-bar"></div><span>Joined DEPI as Data Instructor + NTI Internship</span></div>
+          <div class="amt"><span class="amt-yr">Jun 2024</span><div class="amt-bar"></div><span>Started Data Analytics · Launched Freelance in 8 months</span></div>
+          <div class="amt"><span class="amt-yr">2024</span><div class="amt-bar"></div><span>NTI Internship · Freelance Analyst</span></div>
           <div class="amt"><span class="amt-yr">2025</span><div class="amt-bar"></div><span>Graduated + Google Analytics & BI Certified</span></div>
         </div>
         <div class="rv d6" style="margin-top:2.5rem">
@@ -957,18 +947,18 @@ footer{padding:2.2rem 4rem;background:var(--ink1);border-top:1px solid var(--brd
       <div class="exp-timeline">
         <div class="exp-item rv d1">
           <div class="exp-dot"></div>
-          <div class="exp-period"><i class="fas fa-calendar-alt"></i> 2024 — Present</div>
-          <div class="exp-role">Freelance Data Instructor</div>
+          <div class="exp-period"><i class="fas fa-calendar-alt"></i> Feb 2026 — Mar 2026</div>
+          <div class="exp-role">Freelance Instructor</div>
           <div class="exp-co">DEPI — Digital Egypt Pioneers Initiative</div>
           <div class="exp-desc">Delivered data analytics training sessions to cohorts of aspiring data professionals as part of Egypt's national digital upskilling initiative. Mentored students in SQL, Python, Power BI, and data storytelling — helping them build job-ready skills from the ground up.</div>
           <div class="exp-tags"><span class="exp-tag">SQL</span><span class="exp-tag">Python</span><span class="exp-tag">Power BI</span><span class="exp-tag">Training</span><span class="exp-tag">Mentoring</span></div>
         </div>
         <div class="exp-item rv d2">
           <div class="exp-dot"></div>
-          <div class="exp-period"><i class="fas fa-calendar-alt"></i> 2023 — Present</div>
+          <div class="exp-period"><i class="fas fa-calendar-alt"></i> Jun 2024 — Present</div>
           <div class="exp-role">Freelance Data Analyst</div>
           <div class="exp-co">Independent · Multiple Clients</div>
-          <div class="exp-desc">Delivered 30+ data analytics projects for diverse clients across industries. Work includes end-to-end dashboards, data warehouse design, ETL pipelines, EDA reports, and executive-level visualizations — transforming business questions into data-driven answers.</div>
+          <div class="exp-desc">Delivered 30+ data analytics projects for diverse clients across industries over 8+ months. Work includes end-to-end dashboards, data warehouse design, ETL pipelines, EDA reports, and executive-level visualizations — transforming business questions into data-driven answers.</div>
           <div class="exp-tags"><span class="exp-tag">Dashboard</span><span class="exp-tag">ETL</span><span class="exp-tag">EDA</span><span class="exp-tag">DWH</span><span class="exp-tag">BI</span></div>
         </div>
         <div class="exp-item rv d3">
@@ -1320,10 +1310,11 @@ function cm() { document.getElementById('mob').classList.remove('open'); }
 
 /* ── Theme ── */
 const togBtn = document.getElementById('tog');
-if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+// Light is default — only switch to dark if user previously chose it
+if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
 togBtn.onclick = () => {
-  document.body.classList.toggle('light');
-  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  document.body.classList.toggle('dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 };
 
 /* ── Scroll Reveal ── */
